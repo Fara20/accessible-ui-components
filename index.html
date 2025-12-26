@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Accessible UI components demonstrating inclusive design principles">
+  <title>Accessible UI Component Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Skip Navigation Link (Component 4) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header>
+    <div class="header-content">
+      <h1>Accessible UI Component Library</h1>
+      <p class="subtitle">Demonstrating Inclusive Design Principles</p>
+      <div class="accessibility-badge">
+        <span class="badge">WCAG 2.1 AA Compliant</span>
+        <span class="badge">Keyboard Navigable</span>
+        <span class="badge">Screen Reader Friendly</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- Component 1: Accessible Form Input -->
+    <section class="component-section">
+      <div class="component-container">
+        <h2>Component 1: Accessible Form Input</h2>
+        
+        <form class="accessible-form">
+          <!-- Text Input with Label -->
+          <div class="form-group">
+            <label for="username">
+              Username
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="username" 
+              name="username"
+              aria-required="true"
+              aria-describedby="username-help username-error"
+              class="form-input"
+            />
+            <span id="username-help" class="help-text">
+              Must be 3-20 characters, letters and numbers only
+            </span>
+            <span id="username-error" class="error-text" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Email Input -->
+          <div class="form-group">
+            <label for="email">
+              Email Address
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              aria-required="true"
+              aria-describedby="email-help email-error"
+              class="form-input"
+            />
+            <span id="email-help" class="help-text">
+              We'll never share your email
+            </span>
+            <span id="email-error" class="error-text" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn">
+            Submit Form
+          </button>
+        </form>
+
+        <!-- Accessibility Features List -->
+        <div class="features-box">
+          <h3>✓ Accessibility Features</h3>
+          <ul>
+            <li><strong>Semantic HTML:</strong> Proper label-input association</li>
+            <li><strong>ARIA attributes:</strong> aria-required, aria-describedby, aria-live</li>
+            <li><strong>Keyboard accessible:</strong> Tab through all fields</li>
+            <li><strong>Screen reader friendly:</strong> Error announcements</li>
+            <li><strong>Visual clarity:</strong> Clear focus states, high contrast</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 2: Keyboard-Navigable Dropdown -->
+    <section class="component-section">
+      <div class="component-container">
+        <h2>Component 2: Keyboard-Navigable Dropdown</h2>
+        
+        <div class="dropdown-wrapper">
+          <label id="dropdown-label" for="country-select">Select Your Country</label>
+          <div class="custom-dropdown" id="country-dropdown">
+            <button 
+              type="button"
+              class="dropdown-button"
+              id="country-select"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-labelledby="dropdown-label"
+            >
+              Choose a country
+            </button>
+            <ul class="dropdown-list" role="listbox" aria-labelledby="dropdown-label" id="dropdown-options">
+              <li role="option" data-value="usa">United States</li>
+              <li role="option" data-value="uk">United Kingdom</li>
+              <li role="option" data-value="canada">Canada</li>
+              <li role="option" data-value="bangladesh">Bangladesh</li>
+              <li role="option" data-value="india">India</li>
+              <li role="option" data-value="australia">Australia</li>
+            </ul>
+          </div>
+          <p class="dropdown-hint">Try using Arrow keys ↑↓ and Enter to select</p>
+        </div>
+
+        <div class="features-box">
+          <h3>✓ Accessibility Features</h3>
+          <ul>
+            <li><strong>Arrow key navigation:</strong> ↑↓ to move through options</li>
+            <li><strong>Enter/Space to select:</strong> Choose with keyboard</li>
+            <li><strong>ESC to close:</strong> Quick exit</li>
+            <li><strong>ARIA roles:</strong> listbox, option for screen readers</li>
+            <li><strong>Focus management:</strong> Always visible focus indicator</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 3: High-Contrast Toggle Button -->
+    <section class="component-section">
+      <div class="component-container">
+        <h2>Component 3: High-Contrast Toggle Button</h2>
+        
+        <div class="toggle-demo">
+          <p class="toggle-label">Dark Mode</p>
+          <button 
+            type="button"
+            class="toggle-button"
+            id="dark-mode-toggle"
+            role="switch"
+            aria-checked="false"
+            aria-label="Toggle dark mode"
+          >
+            <span class="toggle-slider"></span>
+          </button>
+          <p class="toggle-status" aria-live="polite" id="toggle-status">Off</p>
+        </div>
+
+        <div class="features-box">
+          <h3>✓ Accessibility Features</h3>
+          <ul>
+            <li><strong>ARIA role="switch":</strong> Correct semantic meaning</li>
+            <li><strong>aria-checked state:</strong> Announces on/off to screen readers</li>
+            <li><strong>Visual indicators:</strong> Color + position change</li>
+            <li><strong>High contrast:</strong> Works for color-blind users</li>
+            <li><strong>Live region:</strong> Status announced when changed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 5: Accessible Modal Dialog -->
+    <section class="component-section">
+      <div class="component-container">
+        <h2>Component 5: Accessible Modal Dialog</h2>
+        
+        <button class="open-modal-btn" id="open-modal">
+          Open Modal Dialog
+        </button>
+
+        <div class="features-box">
+          <h3>✓ Accessibility Features</h3>
+          <ul>
+            <li><strong>Focus trap:</strong> Tab stays inside modal</li>
+            <li><strong>ESC to close:</strong> Quick keyboard exit</li>
+            <li><strong>Focus return:</strong> Returns to trigger button on close</li>
+            <li><strong>ARIA labels:</strong> role="dialog", aria-modal="true"</li>
+            <li><strong>Background scroll lock:</strong> Prevents confusion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Structure (Hidden by default) -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+    <div 
+      class="modal-dialog" 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="modal-title"
+      id="modal-dialog"
+    >
+      <h2 id="modal-title">Accessible Modal Dialog</h2>
+      <p>This modal demonstrates proper focus management and keyboard accessibility.</p>
+      <p>Try pressing Tab to navigate through the elements. Notice focus stays inside the modal!</p>
+      <div class="modal-actions">
+        <button class="modal-btn" id="modal-action">Action Button</button>
+        <button class="modal-btn modal-btn-secondary" id="close-modal">Close</button>
+      </div>
+      <button class="modal-close" aria-label="Close modal" id="close-modal-x">×</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>Built with accessibility in mind | <a href="https://github.com/Fara20/accessible-ui-components">View on GitHub</a></p>
+      <p>All components meet WCAG 2.1 Level AA standards</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
